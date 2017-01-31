@@ -1,0 +1,32 @@
+{% extends "PJBlogBundle::layout.html.twig" %}
+
+{% block title %}
+
+    Jeux - {{ parent() }}
+
+{% endblock %}
+
+{% block contentBody %}
+    <div id='mainbody' class='inlineContainer'>
+        <section id='replyBox'>
+            {% if (is_granted('ROLE_MODERATOR')) or (is_granted('ROLE_ADMIN')) %}
+                <h2>Modifier les roles des utilisateurs</h2>
+                {{ form_start(form, {'attr': {'class': 'full'}}) }}
+                {{ form_rest(form) }}
+
+                {{ form_end(form) }}
+            {% endif %}
+            {% if is_granted('ROLE_ADMIN') %}
+
+                <h2 class='top40'>Bannir des utilisateurs</h2>
+                {{ form_start(ban, {'attr': {'class': 'full'}}) }}
+                {{ form_rest(ban) }}
+
+                {{ form_end(ban) }}
+
+            {% endif %}
+            
+        </section>
+    </div>
+      
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "PJBlogBundle::layout.html.twig" %}
+
+{% block title %}
+
+  Accueil - {{ parent() }}
+
+{% endblock %}
+
+{% block form %}
+                     
+    {{ include("PJBlogBundle:Advert:recherche.html.twig") }}
+{% endblock %}
+{% block slider %}
+    {{ include("PJBlogBundle:Advert:slider.html.twig") }}
+{% endblock %}
+
+{% block contentBody %}
+    <div class='leftColumn borderBox news'>
+        <div class='sectionHeader'>
+                <h2>Aucun jeux trouvé.</h2>
+                 <a href="{{ path('pj_blog_home') }}">Revenir a la page d'accueil</a>
+                
+                
+                     
+        </div>
+    </div>
+{% endblock %}

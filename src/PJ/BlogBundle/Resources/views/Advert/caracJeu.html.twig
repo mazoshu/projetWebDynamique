@@ -1,0 +1,73 @@
+{% extends "PJBlogBundle::layout.html.twig" %}
+
+{% block title %}
+
+  Jeux - {{ parent() }}
+
+{% endblock %}
+
+{% block form %}
+            {{ include("PJBlogBundle:Advert:recherche.html.twig") }}
+
+{% endblock %}
+{% block contentBody %}
+		<div id='mainbody' class='inlineContainer'>
+			<div class=' borderBox '>
+				<div class='sectionHeader'>
+                                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                    <input type="image" name="favoris" src="{{ asset('bundles/images/favoris.png') }}" width="50" onclick="self.location.href='{{ path('pj_blog_favoris', {'id': game.id}) }}'" class='fright' >
+                                    {% endif %}
+                                                {% if (is_granted('ROLE_MODERATOR')) or (is_granted('ROLE_ADMIN'))%}
+
+                                    <input type="button" value="modifier une annonce" onclick="self.location.href='{{ path('pj_blog_edit', {'id': game.id}) }}'" class='fright'/>
+                                    <input type="button" value="supprimer une annonce" onclick="self.location.href='{{ path('pj_blog_delete', {'id': game.id}) }}'" class='fright' />
+                                    {% endif %}
+					<h1>{{ game.title }}</h1>
+
+				<article class='inlineContainer'>
+					<div class='detailss'>
+						<div class='image'>
+							<img src='{{ asset('bundles/images/'~  game.image.url) }}' class='redImg' alt='{{game.image.url}}'/>
+						</div>
+
+					</div>
+					<div >
+                                            <h3 class='coul top'>Caractéristiques : </h3>
+                                        <p>Date de sortie : {{ game.year }}</p>
+                                       
+                                        <p>Plate-forme : {% for conso in game.console %}{{ conso.name }}{% if not loop.last %} / {% endif %}{% endfor %}</p>
+                                         <div class="clear"></div>
+						<h3 class='coul'>Présentation :</h3>
+                                                <p>{{ game.content|raw }}</p>						
+					
+                                        
+                                       
+                                           
+                                        </div>
+                                       <h3 class='coul top'>Images : </h3>
+                                       {% set i = 0 %}
+                                       {% for galleryFinal in game.gallery.images %}
+                                       <div class='detailss'>
+						<div class='image'>
+							<img src='{{asset('bundles/images/' ~ galleryFinal.url)}}' class='red'/>
+						</div>
+					</div>
+                                                {% set i = i +1 %}
+                                                {% if i is divisible by(4) %} 
+                                                    <div class="clear"></div>
+                                                {% endif %}
+                                       {% endfor %}
+                                       <div class='clear'></div>
+				</article>
+                                     
+                                        
+			</div>
+			</div>
+            {% block comment %}
+                
+{{ include("PJBlogBundle:Advert:showComment.html.twig") }}
+
+
+            {% endblock %}
+                </div>
+{% endblock %}

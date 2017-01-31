@@ -1,0 +1,145 @@
+<?php
+
+namespace PJ\BlogBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use PJ\BlogBundle\Entity\Image;
+use PJ\BlogBundle\Entity\Game;
+use Doctrine\Common\Collections\ArrayCollection;
+/**
+ * Gallery
+ *
+ * @ORM\Table(name="gallery")
+ * @ORM\Entity(repositoryClass="PJ\BlogBundle\Repository\GalleryRepository")
+ */
+class Gallery
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="urlgallery", type="string", length=255)
+     */
+    private $urlgallery;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="altgallery", type="string", length=255)
+     */
+    private $altgallery;
+    
+    /**
+     * @var Game
+    * @ORM\OneToOne(targetEntity="PJ\BlogBundle\Entity\Game", inversedBy="gallery")
+    */
+
+     private $game;
+     
+     /**
+      *
+      * @var Image
+      * @ORM\OneToMany(targetEntity="PJ\BlogBundle\Entity\Image", mappedBy="gallery")
+      */
+     private $images;
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set urlgallery
+     *
+     * @param string $urlgallery
+     *
+     * @return Gallery
+     */
+    public function setUrlgallery($urlgallery)
+    {
+        $this->urlgallery = $urlgallery;
+
+        return $this;
+    }
+
+    /**
+     * Get urlgallery
+     *
+     * @return string
+     */
+    public function getUrlgallery()
+    {
+        return $this->urlgallery;
+    }
+
+    /**
+     * Set altgallery
+     *
+     * @param string $altgallery
+     *
+     * @return Gallery
+     */
+    public function setAltgallery($altgallery)
+    {
+        $this->altgallery = $altgallery;
+
+        return $this;
+    }
+
+    /**
+     * Get altgallery
+     *
+     * @return string
+     */
+    public function getAltgallery()
+    {
+        return $this->altgallery;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->gallery = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    
+
+
+    /**
+     * Set game
+     *
+     * @param \PJ\BlogBundle\Entity\Game $game
+     *
+     * @return Gallery
+     */
+    public function setGame(\PJ\BlogBundle\Entity\Game $game = null)
+    {
+        $this->game = $game;
+
+        return $this;
+    }
+
+    /**
+     * Get game
+     *
+     * @return \PJ\BlogBundle\Entity\Game
+     */
+    public function getGame()
+    {
+        return $this->game;
+    }
+}

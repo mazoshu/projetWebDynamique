@@ -1,0 +1,20 @@
+{#index jeu milieu  !!! modifier les images#}  
+{% for advert in listAdverts %}
+    <article class='inlineContainer'>
+<div class='details'>
+    
+        <div class='image'>
+            
+            <a href='#'><img src="{{ asset('bundles/placeholders/WOW.jpg')}}" alt='preview' /></a>
+        </div>
+            
+</div>
+<div class='post borderBox'>
+        <h3><a href='{{ path('pj_blog_caracjeu', {'id': advert.id}) }}'>{{advert.title}}</a></h3>
+        <strong class='tag'>{% for conso in advert.console %}{{ conso.name }}{% if not loop.last %} / {% endif %}{% endfor %}</strong>
+        <p>{{ advert.content[:150]|raw }}</p>
+        <div class='bottom'><a class='generalButton' href='{{ path('pj_blog_caracjeu', {'id': advert.id}) }}'>Read More</a></div>
+</div>
+    </article>
+{% endfor %}
+

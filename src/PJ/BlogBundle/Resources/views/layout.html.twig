@@ -1,0 +1,65 @@
+{% extends "::layout.html.twig" %}
+
+{% block title %}
+    {# tester sans parent !!! voir ce que ca fait#}
+{{ parent() }}
+
+{% endblock %}
+
+{% block content %}
+{% block nav %}
+    <nav id="mainNav">
+	<ul class='inlineContainer'>
+            <li><a href='{{ path('pj_blog_home') }}'>Accueil</a></li>
+                <li>
+                    <a>Console</a>
+                    <ul class='submenu'>
+                            <li><a href="{{ path('pj_blog_console', {'console': 'pc'}) }}">PC</a></li>
+                            <li><a href="{{ path('pj_blog_console', {'console': 'Playstation'}) }}">Playstation</a></li>
+                            <li><a href="{{ path('pj_blog_console', {'console': 'Xbox'}) }}">Xbox</a></li>
+                            <li><a href="{{ path('pj_blog_console', {'console': 'Nintendo'}) }}">Nintendo</a></li>
+                    </ul>
+                </li>
+                    {% if (is_granted('ROLE_MODERATOR')) or (is_granted('ROLE_ADMIN')) %}
+                    
+                            <li><a href="{{ path('pj_blog_add') }}">Ajouter un jeu</a></li>
+                            <li><a href="{{ path('pj_blog_mode') }}">Administration</a></li>
+                    
+                    {% endif %}
+                   
+                    <li id='userNavigation'>
+                           
+                           {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                           
+                               <a href="{{ path('pj_blog_profile') }}"><span class='username'>{{ app.user.username }}</span></a>
+                             <ul class='submenu'>       
+                                    <a href="{{ path('logout') }}">Déconnexion</a>
+                             </ul>
+                           {% else %}
+                                <a>Connexion/Inscription</a>
+                                <ul class="submenu">
+                                    <li><a href="{{ path('login') }}">Connection</a></li>
+                                    <li><a href="{{ path('pj_blog_registration') }}">Inscription</a></li>
+                                </ul>
+                           {% endif %}
+                   </li>       
+        </ul>
+    </nav>
+    
+{% endblock %}
+
+
+    
+{% block form %}
+{% endblock %}
+
+{% block body %}
+{% block slider %}
+{% endblock %}
+
+   <div id='mainbody' class='inlineContainer'>
+       {% block contentBody %}
+       {% endblock %}
+   </div>
+{% endblock %}
+{% endblock %}

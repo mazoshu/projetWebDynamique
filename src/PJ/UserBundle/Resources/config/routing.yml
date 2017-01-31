@@ -1,0 +1,48 @@
+pj_blog_home:
+    path:      /
+    defaults:
+        _controller: PJBlogBundle:Advert:index
+        page: 1
+    requirements:
+        page: \d*
+        
+pj_blog_profile:
+    path:      /profile
+    defaults:
+        _controller: PJUserBundle:Security:profile
+        
+pj_blog_modif:
+    path:      /modif/{id}
+    defaults:
+        _controller: PJUserBundle:Security:modif
+        
+pj_blog_mode:
+    path:      /modif
+    defaults:
+        _controller: PJUserBundle:Security:mode
+        
+
+pj_blog_deletecomment:
+    path:     /deletecomment/{id}
+    defaults:
+        _controller: PJUserBundle:Security:deletecomment
+    requirements:
+        id: \d+
+pj_blog_deletefavoris:
+    path:     /deletefavoris/{id}
+    defaults:
+        _controller: PJUserBundle:Security:deletefavoris
+    requirements:
+        id: \d+
+pj_blog_deleteuser:
+    path:   /{id}
+    defaults:
+        _controller: PJUserBundle:Security:deleteuser
+    requirements:
+        id: \d+
+        
+pj_blog_registration:
+    path:   /register
+    defaults:
+        _controller: PJUserBundle:Security:registration
+   

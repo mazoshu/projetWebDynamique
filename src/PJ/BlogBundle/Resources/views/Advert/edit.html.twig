@@ -1,0 +1,25 @@
+{% extends "PJBlogBundle::layout.html.twig" %}
+
+{% block title %}
+
+  Jeux - {{ parent() }}
+
+{% endblock %}
+
+
+{% block contentBody %}
+    
+		<div id='mainbody' class='inlineContainer'>
+                    <section id='replyBox'>
+                    <p>Ajouter une annonce</p>
+                    {{ form_start(form, {'attr': {'class': 'full'}}) }}
+                    {{ tinymce_init() }}
+
+                    {{ form_rest(form) }}
+                     <a href="#" id="add_image" class="btn btn-default">Ajouter une Image</a>
+                    {{ form_row(form.gallery) }}
+                    {{ form_end(form) }}
+                   
+                    </section>
+                </div>
+{% endblock %}

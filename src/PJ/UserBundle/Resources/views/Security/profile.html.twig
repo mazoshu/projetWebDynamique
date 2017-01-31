@@ -1,0 +1,71 @@
+{% extends "PJBlogBundle::layout.html.twig" %}
+
+{% block title %}
+
+  Jeux - {{ parent() }}
+
+{% endblock %}
+
+{% block contentBody %}
+
+		<div id='mainbody' class='userProfile inlineContainer'>
+			<section class='userInfo inlineContainer'>
+                            <h1>Profile : </h1>
+                                <div class="information">
+                                    {% if app.user.username == user.username %}
+                                    <button class="suppression" data-id="supp{{- user.id}}" data-path="{{path('pj_blog_deleteuser',{'id':user.id})}}">Supprimer le compte</button>
+                                    <input type="button" value="Modifier le profile" onclick="self.location.href='{{ path('pj_blog_modif', {'id': user.id}) }}'" />
+                                    <input type="button" value="Modifier le mot de passe" onclick="self.location.href='{{ path('fos_user_change_password') }}'" />
+                                    {% endif %}
+                                    
+                                    <h2>Information du profile</h2>
+                                    <p>Username : {{user.username}}</p>
+                                    <p>Email : {{user.email}}</p>
+                                </div>
+				<div class='right border'>
+					<h2>Présentation :</h2>
+                                        <p>{{user.presentation}}</p>
+                                </div>
+			</section>
+			<div class=' borderBox'>
+				
+				<section class='news'>
+                                    
+                                    <div class="col1-2">
+					<h2>Favoris : </h2>
+                                        
+                                       
+                                    {% for favorisFinal in favoris %}
+                                         
+                                        <input type="image" name="delete" src="{{ asset('bundles/images/delete.png') }}"  onclick="self.location.href='{{ path('pj_blog_deletefavoris', {'id': favorisFinal.id}) }}'" class='fright20' >
+                                        <div id="cf2" class="col2">
+                                            <a class='user' href='{{ 'platform/caracjeu/' ~ favorisFinal.game.id }}'>
+                                                <p class="bottom">{{favorisFinal.game.title}}</p>
+                                            </a>
+                                        </div>
+                                    {% endfor %}
+                                      
+                                     </div>
+                                    <div class="col1-2">
+                                       <h2>Commentaire posté : </h2>
+                                        {% for commentFinal in comment %}
+                                                <input type="image" name="delete" src="{{ asset('bundles/images/delete.png') }}"  onclick="self.location.href='{{ path('pj_blog_deletecomment', {'id': commentFinal.id}) }}'" class='fright20' >
+
+                                                <div class='rightSide top40'>
+                                                    <div class='info'>
+                                                            <a class='user' href='{{ 'platform/caracjeu/' ~ commentFinal.game.id }}'>{{commentFinal.game.title}}</a>
+                                                            <p>{{commentFinal.content}}</p>
+                                                    </div>
+
+
+                                                </div>
+                                        {% endfor %}
+                                       
+                                    </div>
+                        <div class="clear"></div>
+
+				</section>
+			</div>
+                    <div class="bottom50"></div>
+		</div>
+{% endblock %}

@@ -1,0 +1,75 @@
+pj_blog_home:
+    path:      /
+    defaults:
+        _controller: PJBlogBundle:Advert:index
+    
+    
+pj_blog_console:
+    path:      /console/{console}
+    defaults:
+        _controller: PJBlogBundle:Advert:console
+        
+pj_blog_caracjeu:
+    path:      /caracjeu/{id}
+    defaults:
+        _controller: PJBlogBundle:Advert:caracjeu
+
+        
+pj_blog_view:
+    path:      /advert/{id}
+    defaults:
+        _controller: PJBlogBundle:Advert:view
+    requirements:
+        id: \d+
+        
+pj_blog_favoris:
+    path:      /favoris/{id}
+    defaults:
+        _controller: PJBlogBundle:Advert:favoris
+        
+pj_blog_recherche:
+    path:      /search
+    defaults:
+        _controller: PJBlogBundle:Advert:recherche
+
+
+
+        
+#pj_platform_view_slug:
+#    path:      /{year}/{slug}.{_format}
+#    defaults:
+#        _controller: PJBlogBundle:Advert:viewSlug
+#        _format: html
+#    requirements:
+#        year:   \d{4}
+#        _format: html|xml
+        
+pj_blog_add:
+    path:      /add
+    defaults:
+        _controller: PJBlogBundle:Advert:add
+        
+pj_blog_edit:
+    path:     /edit/{id}
+    defaults:
+        _controller: PJBlogBundle:Advert:edit
+    requirements:
+        id: \d+
+    
+pj_blog_delete:
+    path:     /delete/{id}
+    defaults:
+        _controller: PJBlogBundle:Advert:delete
+    requirements:
+        id: \d+
+        
+pj_blog_showprofile:
+    path:      /profile/{username}
+    defaults:
+        _controller: PJUserBundle:Security:showprofile
+        
+        
+        
+        
+        
+        

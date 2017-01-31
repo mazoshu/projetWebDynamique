@@ -1,0 +1,23 @@
+<section id='comments'>
+        <h3>Commentaires</h3>
+        {% for comment in listComment %}
+            {% if (is_granted('ROLE_MODERATOR')) or (is_granted('ROLE_ADMIN'))%}
+                                <input type="image" name="delete" src="{{ asset('bundles/images/delete.png') }}"  onclick="self.location.href='{{ path('pj_blog_deletecomment', {'id': comment.id}) }}'" class='fright' >
+            {% endif %}                    
+        <div class='comment'>
+                <div class='rightSide'>
+
+                        <div class='info'>
+                                <a class='user' href="{{ path('pj_blog_showprofile', {'username': comment.author}) }}">{{comment.author}}</a>
+                                <div class='right'>
+                                    <time>{{comment.date|date('d/m/Y')}}</time>
+                                </div>
+                        </div>
+                                <p>{{comment.content}}</p>
+                </div>
+
+        </div>
+                                {% endfor %}
+</section>
+
+{{ include("PJBlogBundle:Advert:formComment.html.twig") }}

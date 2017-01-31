@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/wamp/www/symfony/src/PJ/BlogBundle/Resources/views/layout.html.twig</file>
+            <file>file:/C:/wamp/www/symfony/src/PJ/BlogBundle/Resources/views/Advert/slider.html.twig</file>
+            <file>file:/C:/wamp/www/symfony/src/PJ/UserBundle/Resources/views/Security/registration.html.twig</file>
+            <file>file:/C:/wamp/www/symfony/web/app.php</file>
+            <file>file:/C:/wamp/www/symfony/src/PJ/UserBundle/Repository/UserRepository.php</file>
+            <file>file:/C:/wamp/www/symfony/src/PJ/UserBundle/Resources/views/Security/login.html.twig</file>
+            <file>file:/C:/wamp/www/symfony/src/PJ/BlogBundle/Resources/views/Advert/recherche.html.twig</file>
+            <file>file:/C:/wamp/www/symfony/src/PJ/BlogBundle/Resources/views/Advert/index.html.twig</file>
+            <file>file:/C:/wamp/www/symfony/src/PJ/BlogBundle/Repository/GameRepository.php</file>
+            <file>file:/C:/wamp/www/symfony/src/PJ/UserBundle/Resources/views/Security/validation.html.twig</file>
+            <file>file:/C:/wamp/www/symfony/app/config/config.yml</file>
+        </group>
+    </open-files>
+</project-private>

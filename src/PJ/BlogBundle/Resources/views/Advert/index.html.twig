@@ -1,0 +1,31 @@
+{% extends "PJBlogBundle::layout.html.twig" %}
+
+{% block title %}
+
+  Accueil - {{ parent() }}
+
+{% endblock %}
+
+{% block form %}
+                     
+    {{ include("PJBlogBundle:Advert:recherche.html.twig") }}
+{% endblock %}
+{% block slider %}
+    {{ include("PJBlogBundle:Advert:slider.html.twig") }}
+{% endblock %}
+
+{% block contentBody %}
+    <div class='leftColumn borderBox news'>
+        <div class='sectionHeader'>
+                <h1>Jeux-vidéo :</h1>
+                
+                {% if games is empty %}
+                    {{ render(controller('PJBlogBundle:Advert:list'))}}
+                {% else %}
+                   {{ include("PJBlogBundle:Advert:recherchelist.html.twig") }}
+                {% endif %}
+                
+                     
+        </div>
+    </div>
+{% endblock %}

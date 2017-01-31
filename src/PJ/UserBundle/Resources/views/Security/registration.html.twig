@@ -1,0 +1,19 @@
+{% extends "PJUserBundle::layout.html.twig" %}
+
+
+{% block contentBody %}
+
+
+  {# S'il y a une erreur, on l'affiche dans un joli cadre #}
+
+  
+
+
+
+                {{ form_start(form, {'attr': {'class': 'full'}}) }}
+                {{ form_rest(form) }}
+
+                {{ form_end(form) }}
+
+
+{% endblock %}

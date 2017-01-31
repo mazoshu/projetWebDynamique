@@ -1,0 +1,17 @@
+
+{% if app.user %}
+
+ 
+<section id='replyBox'>
+       
+                {{ form_start(form, {'attr': {'class': 'full'}}) }}
+                {{ form_row(form.content) }}
+                {{ form_rest(form) }}
+                 {{ form_end(form) }}
+        
+        
+</section>
+    {% else %}
+        <p style="font-weight:bold; font-size: 18px">Veuillez vous connecter pour pouvoir poster un commentaire.</p>
+{% endif %}
+

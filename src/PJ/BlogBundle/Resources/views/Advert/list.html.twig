@@ -1,0 +1,26 @@
+{% for advert in paginate %}
+    <article class='inlineContainer'>
+        <div class='details'>
+
+            <div class='image'>
+
+                <a href='{{ path('pj_blog_caracjeu', {'id': advert.id}) }}'><img src="{{ asset('bundles/images/'~  advert.image.url) }}" alt='preview' /></a>
+            </div>
+
+        </div>
+        <div class='post borderBox'>
+            <h3><a href='{{ path('pj_blog_caracjeu', {'id': advert.id}) }}'>{{advert.title}}</a></h3>
+            <strong class='tag'>{% for conso in advert.console %}{{ conso.name }}{% if not loop.last %} / {% endif %}{% endfor %}</strong>
+            <p></p>
+            {{ advert.content| striptags|slice(0,150) }}
+            
+            <div class="clear"></div>
+            <div class='bottom'><a class='generalButton' href='{{ path('pj_blog_caracjeu', {'id': advert.id}) }}'>Read More</a></div>
+        </div>
+    </article>
+{% endfor %}
+
+
+<div class="navigation text-center">
+    {{ knp_pagination_render(paginate) }}
+</div>

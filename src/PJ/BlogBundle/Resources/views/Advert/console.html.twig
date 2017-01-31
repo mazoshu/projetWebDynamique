@@ -1,0 +1,28 @@
+{% extends "PJBlogBundle::layout.html.twig" %}
+
+{% block title %}
+
+  Console - {{ parent() }}
+
+{% endblock %}
+{% block form %}
+        {{ include("PJBlogBundle:Advert:recherche.html.twig") }}
+
+    
+{% endblock %}
+{% block slider %}
+    {{ include("PJBlogBundle:Advert:slider.html.twig") }}
+{% endblock %}
+{% block contentBody %}
+    
+    <div class='leftColumn borderBox news'>
+        <div class='sectionHeader'>
+                <h1>Jeux-vidéo {{console}}</h1>
+
+                
+            {{ render(controller('PJBlogBundle:Advert:listConsole', {'console': console}))}}
+
+                     
+        </div>
+    </div>
+{% endblock %}

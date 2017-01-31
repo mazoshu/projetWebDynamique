@@ -1,0 +1,21 @@
+{% extends "PJUserBundle::layout.html.twig" %}
+
+{% block title %}
+
+  Jeux - {{ parent() }}
+
+{% endblock %}
+
+
+{% block contentBody %}
+    
+		<div id='mainbody' class='inlineContainer'>
+                    <section id='replyBox'>
+                        <h2>Modification du profile</h2>
+                    {{ form_start(form, {'attr': {'class': 'full'}}) }}
+                    {{ form_rest(form) }}
+                    {{ form_end(form) }}
+                   
+                    </section>
+                </div>
+{% endblock %}

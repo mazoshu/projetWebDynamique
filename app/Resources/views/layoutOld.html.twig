@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% block head %}
+    {%endblock%}
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{% block title %}GameCity{%endblock%}</title>
+	<link rel="stylesheet" href="{{ asset('bundles/css/styles.css')}}">
+	<link rel="stylesheet" href="{{ asset('bundles/css/colorbox.css')}}">
+	<link rel="stylesheet" href="{{ asset('bundles/jquery-ui/css/custom-theme/jquery-ui-1.10.4.custom.css')}}">
+</head>
+<body>
+	<header id="header"></header>     
+	<div id="content" class='mainWidth'>
+            {% block content %}
+            
+		<input id='navToggle' type='checkbox' />
+		<label for='navToggle'></label>
+		
+                {% block nav %}
+                {%endblock%}
+			
+   
+		{% block form %}
+                {%endblock%}
+	
+                {% block body %}
+                {% endblock %}
+            {% endblock %}
+                
+        </div>
+
+	<script src='{{ asset("bundles/js/jquery-1.10.2.js")}}'></script>
+        <script src='{{ asset("bundles/js/ajax.js")}}'></script>
+	<script src='{{ asset("bundles/js/jquery.colorbox-min.js")}}'></script>
+        <script src='{{ asset("bundles/js/addimage.js")}}'></script>
+        <script src='{{ asset("bundles/js/addconsole.js")}}'></script>
+	<script src='{{ asset("bundles/jquery-ui/js/jquery-ui-1.10.4.custom.min.js")}}'></script>
+	<script src='{{ asset("bundles/js/slider.js")}}'></script>
+	<script src='{{ asset("bundles/js/menu.js")}}'></script>
+        
+	<script src='{{ asset("bundles/js/lightbox.js")}}'></script>
+
+</body>
+</html>

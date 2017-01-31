@@ -1,0 +1,24 @@
+<div id="back">
+        
+    <h2>Recherche:</h2>
+    
+       <div id='mainbody' class='inlineContainer'>
+                    <section id='replyBox'>
+                     <form action="{{ path('pj_blog_recherche') }}" method="get">
+                        titre  <input type="text" name="keyword" name="titre" value='{{app.request.query.get("keyword")}}'>
+                        Année  <input type="text" name="year" value='{{app.request.query.get("year")}}'>                       
+                        console
+                         <select name="console">
+                            <option value=""></option>
+                            <option value="PC" {% if app.request.query.get("console") == 'PC' %} selected = 'selected' {% endif %}>PC</option>
+                            <option value="Xbox" >Xbox</option>
+                            <option value="Nintendo" >Nintendo</option>
+                            <option value="Playstation" >Playstation</option>
+                          </select> 
+                        <input type="submit">
+
+                     </form>
+                   
+                    </section>
+                </div>
+ </div>
