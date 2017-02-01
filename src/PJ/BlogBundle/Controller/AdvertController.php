@@ -370,13 +370,13 @@ class AdvertController extends Controller
             * @var $paginator \Knp\Component\Pager\Paginator
             */
            //$currentPage = $_GET['page'];
-                if(empty($_GET['page']))
+                if(empty($request->query->get('page')/*$_GET['page']*/))
                 {
                     $currentPage=1;
                 }
                 else
                 {
-                    $currentPage = $_GET['page'];
+                    $currentPage = $request->query->get('page');/*$_GET['page']*/
                 }
                 $paginator  = $this->get('knp_paginator');
                 $pagination = $paginator->paginate(
@@ -402,13 +402,13 @@ class AdvertController extends Controller
             $em=$this->getDoctrine()->getManager();
             $blogPosts=$em->getRepository('PJBlogBundle:Game')->findAll();
        
-            if(empty($_GET['page']))
+            if(empty($request->query->get('page')/*$_GET['page'])*/))
             {
                 $currentPage=1;
             }
             else
             {
-                $currentPage = $_GET['page'];
+                $currentPage = $request->query->get('page')/*$_GET['page']*/;
             }
                 $paginator  = $this->get('knp_paginator');
                 $pagination = $paginator->paginate(
@@ -433,7 +433,7 @@ class AdvertController extends Controller
                      $year = '';
                      $console = '';
 
-            if(!empty($_GET['keyword']) || !empty($_GET['year']) || !empty($_GET['console']))
+            if(!empty($request->query->get('keyword')/*$_GET['keyword']*/) || !empty($request->query->get('year')/*$_GET['year']*/) || !empty($request->query->get('console')/*$_GET['console']*/))
             {
                 $em=$this->getDoctrine()->getManager();
                 if($request->query->get('keyword') !== null)
